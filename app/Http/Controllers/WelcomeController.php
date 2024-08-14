@@ -12,10 +12,12 @@ class WelcomeController extends Controller
     public function index()
     {
         $detailPayment = PaymentDetail::all();
+        $total = PaymentDetail::Sum('price');
         return inertia(
             'Welcome',
             [
                 'detailPayment' => $detailPayment,
+                'total' => $total,
             ]
         );
     }

@@ -1,4 +1,4 @@
-import { DetailPayment, PageProps, SchoolYear } from "@/types";
+import { DetailPayment, PageProps, SchoolYear, total } from "@/types";
 import GuestLayout from "@/Layouts/GuestLayout";
 import BGhero from "../../../public/bg/hero.png";
 import { Button } from "@/Components/ui/button";
@@ -12,13 +12,10 @@ import { FormatRupiah } from "@arismun/format-rupiah";
 interface Props {
     detailPayment: DetailPayment[];
     schoolYear: SchoolYear;
+    total :number;
 }
-export default function Welcome({ detailPayment, schoolYear }: Props) {
-    const [total, setTotal] = useState(0);
-
-    useEffect(() => {
-        setTotal(detailPayment.reduce((acc, curr) => acc + curr.price, 0));
-    }, [detailPayment]);
+export default function Welcome({ detailPayment, schoolYear, total }: Props) {
+    console.log(total)
     return (
         <>
             <div className="h-screen z-10 w-full  ">

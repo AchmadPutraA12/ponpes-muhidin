@@ -15,6 +15,10 @@ export interface Extracurricular {
     updated_at: string;
 }
 
+export interface total{
+    total: number;
+}
+
 export interface DetailPayment {
     id: number;
     description: string;
