@@ -116,8 +116,9 @@ export const schoolYearColumns: ColumnDef<SchoolYear>[] = [
             );
         },
         cell(props) {
+            // Menggunakan 1 untuk 'aktif' dan 0 untuk 'tidak aktif'
             const isActive = props.row.getValue("is_active");
-            const position = isActive ? "aktif" : "tidak aktif";
+            const position = isActive === 1 ? "aktif" : "tidak aktif";
 
             return (
                 <div>
@@ -171,9 +172,8 @@ export const schoolYearColumns: ColumnDef<SchoolYear>[] = [
                     </DropdownMenu>
                 </div>
             );
-        }
-    },
-
+        },
+    },    
     {
         id: "actions",
         enableHiding: false,
