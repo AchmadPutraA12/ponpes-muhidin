@@ -116,15 +116,7 @@ export const schoolYearColumns: ColumnDef<SchoolYear>[] = [
             );
         },
         cell(props) {
-            const [position, setPosition] = React.useState(
-                props.row.getValue("is_active") ? "aktif" : "tidak aktif"
-            );
-
-            useEffect(() => {
-                setPosition(
-                    props.row.getValue("is_active") ? "aktif" : "tidak aktif"
-                );
-            }, [props.row.getValue("is_active"), position]);
+            const position = props.row.getValue("is_active") ? "aktif" : "tidak aktif";
 
             return (
                 <div>
@@ -156,7 +148,6 @@ export const schoolYearColumns: ColumnDef<SchoolYear>[] = [
                             <DropdownMenuRadioGroup
                                 value={position}
                                 onValueChange={(value) => {
-                                    setPosition(value);
                                     const status = value === "aktif" ? 1 : 0;
                                     router.patch(
                                         `/admin/tahun-ajaran/update-status/${props.row.original.id}`,
@@ -181,6 +172,7 @@ export const schoolYearColumns: ColumnDef<SchoolYear>[] = [
             );
         },
     },
+        
     {
         id: "actions",
         enableHiding: false,
