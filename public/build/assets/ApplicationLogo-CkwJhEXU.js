@@ -1,1 +1,0 @@
-import{j as s}from"./app-Buh0ehGF.js";import{c as t}from"./utils-8RyR4BqC.js";const a="/build/assets/Logo-p8YK2oc_.png",c=({className:o})=>s.jsx("img",{src:a,className:t("h-10 w-auto",o),alt:""}),n=c;export{n as A};

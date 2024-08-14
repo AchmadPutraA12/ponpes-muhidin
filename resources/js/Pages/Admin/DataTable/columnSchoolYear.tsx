@@ -116,7 +116,8 @@ export const schoolYearColumns: ColumnDef<SchoolYear>[] = [
             );
         },
         cell(props) {
-            const position = props.row.getValue("is_active") ? "aktif" : "tidak aktif";
+            const isActive = props.row.getValue("is_active");
+            const position = isActive ? "aktif" : "tidak aktif";
 
             return (
                 <div>
@@ -170,9 +171,9 @@ export const schoolYearColumns: ColumnDef<SchoolYear>[] = [
                     </DropdownMenu>
                 </div>
             );
-        },
+        }
     },
-        
+
     {
         id: "actions",
         enableHiding: false,
