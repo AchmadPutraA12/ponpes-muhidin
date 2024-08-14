@@ -55,8 +55,18 @@ const Navbar = () => {
             <div className="flex items-center gap-16">
                 <div className="lg:flex items-center gap-6 hidden">
                     {" "}
+
                     {!auth.user ? (
                         <>
+                            <Link
+                                className={` ${url === "/" &&
+                                    "text-primary font-semibold"
+                                    }`}
+                                href="/"
+                                as="button"
+                            >
+                                Home
+                            </Link>
                             <a
                                 href="#biaya-pendaftaran"
                                 onClick={(e) =>
@@ -75,22 +85,21 @@ const Navbar = () => {
                     ) : (
                         <>
                             <Link
-                                className={` ${
-                                    url === "/dashboard" &&
+                                className={` ${url === "/" &&
                                     "text-primary font-semibold"
-                                }`}
-                                href="/dashboard"
+                                    }`}
+                                href="/"
                                 as="button"
                             >
                                 Home
                             </Link>
                         </>
                     )}
+
                     <Link
-                        className={` ${
-                            url === "/tentang-kami" &&
+                        className={` ${url === "/tentang-kami" &&
                             "text-primary font-semibold"
-                        }`}
+                            }`}
                         href="/tentang-kami"
                         as="button"
                     >
