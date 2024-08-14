@@ -11,6 +11,7 @@ interface Props {
     schoolYears: SchoolYear[];
 }
 export default function Dashboard({ schoolYears }: Props) {
+    // console.log(schoolYears);
     const [tabsValue, setTabsValue] = useLocalStorage(
         "ponpes_table_schoolyear",
         "ponpes_add_schoolyear"

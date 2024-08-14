@@ -116,16 +116,15 @@ export const schoolYearColumns: ColumnDef<SchoolYear>[] = [
             );
         },
         cell(props) {
-            // Menggunakan 1 untuk 'aktif' dan 0 untuk 'tidak aktif'
-            const isActive = props.row.getValue("is_active");
-            const position = isActive === 1 ? "aktif" : "tidak aktif";
+            // Menggunakan penetapan tipe secara eksplisit
+            const isActive = props.row.getValue("is_active") as number;
 
             return (
                 <div>
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                             <button>
-                                {position === "aktif" ? (
+                                {isActive === 1 ? (
                                     <div className="flex items-center gap-2 text-green-500 font-bold px-3 bg-primary/20 py-2 rounded-lg">
                                         <span>Aktif</span>
                                         <ChevronDown
@@ -148,9 +147,9 @@ export const schoolYearColumns: ColumnDef<SchoolYear>[] = [
                             <DropdownMenuLabel>Status</DropdownMenuLabel>
                             <DropdownMenuSeparator />
                             <DropdownMenuRadioGroup
-                                value={position}
+                                value={isActive.toString()} // Tidak lagi memicu kesalahan
                                 onValueChange={(value) => {
-                                    const status = value === "aktif" ? 1 : 0;
+                                    const status = parseInt(value, 10); // Mengembalikan nilai ke angka
                                     router.patch(
                                         `/admin/tahun-ajaran/update-status/${props.row.original.id}`,
                                         { status },
@@ -161,10 +160,10 @@ export const schoolYearColumns: ColumnDef<SchoolYear>[] = [
                                 }}
                                 className="text-xs"
                             >
-                                <DropdownMenuRadioItem value="tidak aktif">
+                                <DropdownMenuRadioItem value="0">
                                     Tidak Aktif
                                 </DropdownMenuRadioItem>
-                                <DropdownMenuRadioItem value="aktif">
+                                <DropdownMenuRadioItem value="1">
                                     Aktif
                                 </DropdownMenuRadioItem>
                             </DropdownMenuRadioGroup>
@@ -173,7 +172,7 @@ export const schoolYearColumns: ColumnDef<SchoolYear>[] = [
                 </div>
             );
         },
-    },    
+    },
     {
         id: "actions",
         enableHiding: false,
