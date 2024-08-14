@@ -1,0 +1,1 @@
+import{j as r}from"./app-J-nl61Ul.js";import{c as t}from"./utils-8RyR4BqC.js";const i=({className:s})=>r.jsx("img",{className:t("size-12",s),src:"https://i.gifer.com/ZKZg.gif",alt:""}),e=i;export{e as S};
