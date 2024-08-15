@@ -1,0 +1,1 @@
+import{j as e}from"./app-Blg0bdjs.js";function t({className:o="",...r}){return e.jsx("input",{...r,type:"checkbox",className:"rounded border-gray-500 text-indigo-600 shadow-sm focus:ring-indigo-500 "+o})}export{t as C};
