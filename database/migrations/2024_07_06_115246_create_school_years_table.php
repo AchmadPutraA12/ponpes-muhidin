@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('first_year');
             $table->string('last_year');
             $table->integer('quota');
-            $table->integer('is_active')->default(0);
+            $table->boolean('is_active')->default(false);
             $table->timestamps();
         });
     }

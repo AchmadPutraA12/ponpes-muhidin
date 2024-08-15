@@ -15,7 +15,6 @@ interface Props {
     total :number;
 }
 export default function Welcome({ detailPayment, schoolYear, total }: Props) {
-    console.log(total)
     return (
         <>
             <div className="h-screen z-10 w-full  ">
